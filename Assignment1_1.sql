@@ -60,5 +60,22 @@ dockcount	station_id 	installation
 11	32	"2013-12-31"
 11	35	"2013-08-15"
 
+Question 4. What is the average trip duration by end selection?
+
+Code:
+select duration, end_station, count(*) as duration_average
+from trips
+group by 1, 2;
+
+Output:
+duration	end_station	duration_average
+"560"	"San Antonio Shopping Center"	"1"
+"636"	"San Francisco Caltrain 2 (330 Townsend)"	"34"
+"5223"	"Charleston Park/ North Bayshore Area"	"1"
+"7315"	"Mountain View Caltrain Station"	"1"
+"923"	"Harry Bridges Plaza (Ferry Building)"	"3"
+"482"	"Washington at Kearny"	"2"
+"851"	"Broadway St at Battery St"	"5"
+"429"	"Mechanics Plaza (Market at Battery)"	"7"
 
 
