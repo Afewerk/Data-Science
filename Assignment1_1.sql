@@ -20,3 +20,18 @@ Code:
 select mintemperaturef
 from weather 
 where zip = 94301;
+
+Agregation & grouping
+Assignment 
+Question 1. What was the hottest day in our dataset? Where was that?
+
+Code:
+select maxtemperaturef, date, zip
+from weather
+group by 1, 2,3
+order by maxtemperaturef desc 
+limit 5;
+
+Output: Temp = 134, Date = 2015-11-17, Zip = 94063
+
+
