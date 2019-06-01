@@ -34,4 +34,17 @@ limit 5;
 
 Output: Temp = 134, Date = 2015-11-17, Zip = 94063
 
+Question 2. How many trips started at each station?
+
+Code:
+select dockcount, 
+	name, 
+	count(*) as dockcount_count	
+from stations 
+group by 1,2;
+
+Output: 
+dockcount = 27, name = stuart_at_market , dockcount_count = 1 .....
+
+
 
