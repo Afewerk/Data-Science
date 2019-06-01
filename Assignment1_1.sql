@@ -46,5 +46,19 @@ group by 1,2;
 Output: 
 dockcount = 27, name = stuart_at_market , dockcount_count = 1 .....
 
+Question 3. What's the shortest trip that happened?
+
+Code:
+select dockcount, station_id, installation
+from stations
+group by 1,2,3
+order by dockcount asc limit 3;
+ 
+Output:
+dockcount	station_id 	installation
+11	4	"2013-08-06"
+11	32	"2013-12-31"
+11	35	"2013-08-15"
+
 
 
