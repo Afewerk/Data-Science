@@ -43,4 +43,15 @@ Output
 5	"Adobe on Almaden"		"0"
 
 Q3. Return a list of stations with a count of number of trips starting at that station but ordered by dock count?
-Code:
+
+Code:--creating a full talbe from status talbe
+select stations.name, 
+	trips.start_station,
+	count(stations.dockcount) docks_count
+from stations
+join trips
+on trips.start_station = stations.name
+group by 1, 2
+order by docks_count desc;
+
+Output: 
