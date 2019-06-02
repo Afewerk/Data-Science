@@ -1,0 +1,26 @@
+SQL Baseics - Handling multiple tables 
+-- Question. What are the three longest trips on rainy days?
+--We'll start by setting a rainy table and joining dates of trip duration & rainy days
+Code:
+with rainy
+AS( 
+	select  
+	DATE(date) event_date,
+   from weather
+	where events = 'Rain'
+   group by 1
+  )
+select 
+	t.trip_id,
+	t.duration, 
+	DATE(t.start_date)
+from trips t
+join rainy r
+on DATE(t.start_date) = r.event_date
+order by duration DESC
+limit 3;
+
+Out: 
+"1173890"	"85900"	"2016-04-22"
+"1009870"	"84349"	"2015-11-15"
+"1210487"	"83915"	"2016-05-21"
