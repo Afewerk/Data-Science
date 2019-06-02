@@ -24,3 +24,23 @@ Out:
 "1173890"	"85900"	"2016-04-22"
 "1009870"	"84349"	"2015-11-15"
 "1210487"	"83915"	"2016-05-21"
+
+Q2. Which station is full most often?
+
+Code: --creating a full talbe from status talbe
+select status.station_id, stations.name,
+count(case when status.docks_available =0 then 1 end) fill_count
+from status
+join stations
+on stations.station_id = status.station_id
+group by 1, 2
+order by fill_count desc;
+
+Output
+4	"Santa Clara at Almaden"	"5788"
+3	"San Jose Civic Center"		"1444"
+2	"San Jose Diridon Caltrain Station"	"626"
+5	"Adobe on Almaden"		"0"
+
+Q3. Return a list of stations with a count of number of trips starting at that station but ordered by dock count?
+Code:
