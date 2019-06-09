@@ -1,20 +1,12 @@
-
---creating an intermediate table
-with cheapest as 
-(
-select   
-	price, 
-	date(calender_date) as cheap_date
-	from sfo_calendar
-	group by 1,2
-)
-select 
-	sa.listing_id,
-	sa.price,
-	date(sa.calender_date)
-from cal_price sa
-	
-inner join cheapest ch
-on date(sa.calender_date) = ch.cheap_date
-where sa.price between 10 and 236
-order by price limit 10000;
+--This sql code generates the cheapest time to go to sfo using abnb
+WITH most_cheapest AS 
+	(SELECT min(l.price) 
+ 	FROM sfo_listings l
+ 	where price > 0) 
+ 	SELECT id,
+		name, 
+		host_name, 
+		price, last_review
+ 	FROM sfo_listings l 
+ 	JOIN most_cheapest m 
+ 	ON m.min = l.price
