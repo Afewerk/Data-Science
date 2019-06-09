@@ -1,5 +1,4 @@
---indexing 
---create index first_index5 on cal_price (price);
+
 --creating an intermediate table
 with cheapest as 
 (
